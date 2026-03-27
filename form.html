@@ -350,7 +350,8 @@
     <div id="printContainerWrapper" class="print-container-wrapper">
         <div class="account-container" id="originalFormContent">
             <div id="copyLabel" class="copy-label"></div>
-            <div class="upper-right-controls"> 
+                <div class="upper-right-controls"> 
+                <button id="refresh-button" class="action-button report-button" style="background-color: #6c757d; margin-right: 10px;">Refresh</button>
                 <button id="old-student-button" class="action-button report-button" style="background-color: #0066cc; margin-right: 10px;">Old Student</button>
                 <button id="report-button" class="action-button report-button" onclick="openreportForm()">Report a Bug</button>
             </div>
@@ -2448,19 +2449,18 @@
         };
 
         // Set up the button click listeners
-        document.addEventListener('DOMContentLoaded', function() {
+         document.addEventListener('DOMContentLoaded', function() {
+            // When "Refresh" button is clicked
+            const refreshBtn = document.getElementById('refresh-button');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', () => window.location.reload());
+            }
+
             // When "Old Student" button is clicked
             const oldStudentBtn = document.getElementById('old-student-button');
             if (oldStudentBtn) {
                 oldStudentBtn.addEventListener('click', showOldStudentPopup);
             }
-            
-            // When "Search" button in popup is clicked
-            const searchBtn = document.getElementById('oldStudentSearchBtn');
-            if (searchBtn) {
-                searchBtn.addEventListener('click', searchStudentById);
-            }
-            
             // When "Cancel" button in popup is clicked
             const cancelBtn = document.getElementById('oldStudentCancelBtn');
             if (cancelBtn) {
